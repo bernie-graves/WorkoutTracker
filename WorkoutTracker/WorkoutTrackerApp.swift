@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct WorkoutTrackerApp: App {
+    
+    @StateObject var viewRouter = ViewRouter()
+    @StateObject var workoutModel = WorkoutModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                // authentication stuff
+                ContentView()
+            }
+            .environmentObject(viewRouter)
+            .environmentObject(workoutModel)
         }
     }
 }
